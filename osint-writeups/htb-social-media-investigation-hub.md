@@ -6,83 +6,49 @@ Difficulty: Easy
 Date: 06/04/2026
 Flag: `[REDACTED]`
 
+Tags: `#osint` `#htb` `#socmint` `#investigation`
+
 ---
 
 ## Context
 
-Investigate a suspicious account — **TechReviewer2024** — across three fictional social media platforms:
-- **ChirpNet** (Twitter-like)
-- **ConnectPro** (LinkedIn-like)
-- **ForumHub** (Reddit-like)
-
-Goal: answer 9 questions about this person and their activities to get the flag.
-
----
-
-## Starting point
-
-- A username: TechReviewer2024
-- Three platforms to explore
-- 9 questions to solve
+Investigate **TechReviewer2024** across 3 fictional platforms: ChirpNet (Twitter), ConnectPro (LinkedIn), ForumHub (Reddit). 9 questions to answer.
 
 ---
 
 ## Walkthrough
 
-### 1 — Identification via ConnectPro
+### ConnectPro (LinkedIn-like)
 
-Started with the professional profile. On ConnectPro the account is linked to a real name: **Alex Morgan**. The profile also shows:
-- Previous employer: RivalTech Inc.
-- Education: University of California, Berkeley
-- 89 connections
+Best starting point — people put their real name on professional profiles without thinking.
 
-Professional profiles always expose more than regular social media — best entry point.
+Account linked to **Alex Morgan**. Previous employer: RivalTech Inc. Education: UC Berkeley. 89 connections.
 
-### 2 — Timeline on ChirpNet
+### ChirpNet (Twitter-like)
 
-On ChirpNet I checked the account creation date: **February 2024**. Important because it matches a coordinated campaign (see next step).
+Account created **February 2024**. Noted this because it becomes important later.
 
-### 3 — Activity on ForumHub
+### ForumHub (Reddit-like)
 
-This is where it gets interesting. On ForumHub, TechReviewer2024 is a **moderator** with 1,247 karma points. Digging through posts I found a codename: **operation_social_storm_2024**.
+This is where it gets interesting. TechReviewer2024 is a **moderator** with 1,247 karma. Digging through posts found a codename: **operation_social_storm_2024**.
 
-It's a coordinated negative review campaign targeting the **XyloPhone Pro**. All involved accounts were created in February 2024 — same period as the ChirpNet account.
+It's a coordinated negative review campaign targeting the **XyloPhone Pro**. All involved accounts created in Feb 2024 — same period as ChirpNet account.
 
 ---
 
-## Dead ends / wrong turns
+## Solution
 
-- Spent too much time on ChirpNet at first when the key info was on ConnectPro and ForumHub
-- The link between platforms is through account creation dates, not usernames
-
----
-
-## Solution summary
-
-1. ConnectPro → real identity, employer, education, connections
-2. ChirpNet → account creation date (February 2024)
-3. ForumHub → moderator role, karma, operation name, targeted product
-4. Connect the dots → coordinated disinformation campaign
+1. ConnectPro → real identity, employer, education
+2. ChirpNet → account creation date (Feb 2024)
+3. ForumHub → mod role, operation name, targeted product
+4. Connect the dots → coordinated disinfo campaign
 
 Flag: `[REDACTED]`
 
 ---
 
-## Tools
-
-| Tool | Why |
-|---|---|
-| Browser | Manual exploration of the 3 platforms |
-| Timeline correlation | Linking account creation dates across platforms |
-
----
-
 ## Notes
 
-- Professional profiles (LinkedIn-type) are often the first identity leak — people put their real name without thinking
-- Timeline correlation between accounts on different platforms is a strong indicator of coordination
-- Always check community roles (moderator, admin) — shows the account's level of influence
-
----
-
-Tags: `#osint` `#htb` `#socmint` `#investigation` `#social-media`
+- Professional profiles (LinkedIn-type) are always the first identity leak
+- Timeline correlation between accounts on different platforms = strong indicator of coordination
+- Check community roles (mod, admin) — shows account influence level
