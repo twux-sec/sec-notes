@@ -13,27 +13,25 @@ IT background in networking and systems. Built and managed companies in regulate
 
 ## Content
 
-**OSINT Investigations** — Write-ups and methodology.
+### OSINT Investigations
+
 - [Social Media Investigation Hub](osint-writeups/htb-social-media-investigation-hub.md) — HackTheBox
-- [Osintopia 14IX](osint-writeups/osintopia-14IX.md)
-- [Tools & methodology](osint-writeups/README.md)
+- [Taste of Influence](osint-writeups/osint-industries-ctf/taste-of-influence/) — OSINT Industries CTF (VK, Strava)
+- [Operation LOCKERGOGA](osint-writeups/osint-industries-ctf/operation-lockergoga/) — OSINT Industries CTF (ransomware, vehicle OSINT)
 
-**Incident Response** — Playbooks and procedures.
-- [Phishing Playbook](incident-response/playbook-phishing.md)
+### Challenges
 
-**Threat Intelligence & Financial OSINT** — Corporate network mapping, due diligence, suspicious pattern detection. *Coming soon.*
+- [Meow](challenges/htb-meow/htb-meow.md) — HTB Starting Point (Telnet)
+- [Fawn](challenges/htb-fawn/htb-fawn.md) — HTB Starting Point (FTP)
+- [Dancing](challenges/htb-dancing/htb-dancing.md) — HTB Starting Point (SMB)
+- [Caught in the Act](challenges/osint-industries-ctf/caught-in-the-act.md) — OSINT Industries CTF (geolocation)
+- [DEPIX](challenges/osint-industries-ctf/osint-depix.md) — OSINT Industries CTF (boarding pass depix)
 
-**Challenges** — HTB, THM, CTF write-ups.
-- [Meow](challenges/htb-meow/htb-meow.md) — HackTheBox Starting Point (Tier 0)
-- [Fawn](challenges/htb-fawn/htb-fawn.md) — HackTheBox Starting Point (Tier 0)
-- [Dancing](challenges/htb-dancing/htb-dancing.md) — HackTheBox Starting Point (Tier 0)
-- [Caught in the Act](challenges/osint-industries-ctf/caught-in-the-act.md) — OSINT Industries CTF
-- [DEPIX](challenges/osint-industries-ctf/osint-depix.md) — OSINT Industries CTF
+### Other
 
-**SOC & Blue Team** — SOC challenges and blue team write-ups.
-- [Tools & methodology](soc-writeups/README.md)
-
-**GRC & Crisis Management** — Compliance frameworks (ISO 27001, NIS2, DORA), incident response coordination, crisis procedures. *Coming soon.*
+- [Incident Response — Phishing Playbook](incident-response/playbook-phishing.md)
+- [Detection Rules](detection-rules/)
+- [GRC Templates](grc-templates/)
 
 ## License
 
