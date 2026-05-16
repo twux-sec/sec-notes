@@ -1,0 +1,148 @@
+# publish.ps1 — sync vault → content/ + commit + push
+#
+# Usage :
+#   .\publish.ps1              # sync (ne touche pas aux fichiers existants), puis demande commit
+#   .\publish.ps1 -Force       # écrase les fichiers existants (ATTENTION : perd les redactions/edits manuels)
+#   .\publish.ps1 -DryRun      # montre ce qui serait copié, ne touche à rien
+#   .\publish.ps1 -SkipPush    # commit mais ne push pas
+#
+# Convention : seuls les sous-dossiers writeups/ du vault sont copiés.
+# Les notes/ restent perso (vault uniquement).
+# Si le vault contient un .md à la racine d'une plateforme (ex: Bleuet V5),
+# il est aussi copié.
+
+param(
+    [switch]$Force,
+    [switch]$DryRun,
+    [switch]$SkipPush,
+    [string]$VaultPath = "C:\Users\victo\Documents\DEV\vault-t\challenges-CTF",
+    # Plateformes NON publiques (jamais syncees) :
+    [string[]]$Exclude = @("Osint-FR")
+)
+
+$ErrorActionPreference = "Stop"
+$repoRoot = $PSScriptRoot
+$contentDir = Join-Path $repoRoot "content"
+
+if (-not (Test-Path $VaultPath)) {
+    Write-Error "Vault non trouvé : $VaultPath"
+    exit 1
+}
+
+Write-Host ">>> Sync vault -> content/" -ForegroundColor Cyan
+Write-Host "    src : $VaultPath"
+Write-Host "    dst : $contentDir"
+Write-Host ""
+
+$copied = 0
+$skipped = 0
+$conflicts = @()
+
+foreach ($plat in Get-ChildItem -Path $VaultPath -Directory) {
+    if ($Exclude -contains $plat.Name) {
+        Write-Host "EXCLUDED   $($plat.Name)" -ForegroundColor DarkGray
+        continue
+    }
+    $writeupsDir = Join-Path $plat.FullName "writeups"
+    $sourceRoot = $null
+
+    if (Test-Path $writeupsDir) {
+        if (Get-ChildItem -Path $writeupsDir -ErrorAction SilentlyContinue) {
+            $sourceRoot = $writeupsDir
+        }
+    } else {
+        $directMd = Get-ChildItem -Path $plat.FullName -File -Filter "*.md" -ErrorAction SilentlyContinue
+        if ($directMd.Count -gt 0) {
+            $sourceRoot = $plat.FullName
+        }
+    }
+
+    if (-not $sourceRoot) { continue }
+
+    $destDir = Join-Path $contentDir $plat.Name
+
+    foreach ($file in Get-ChildItem -Path $sourceRoot -Recurse -File) {
+        $relPath = $file.FullName.Substring($sourceRoot.Length + 1)
+        $destFile = Join-Path $destDir $relPath
+        $destFileDir = Split-Path -Parent $destFile
+
+        if (Test-Path $destFile) {
+            $sameContent = (Get-FileHash $file.FullName).Hash -eq (Get-FileHash $destFile).Hash
+            if ($sameContent) {
+                $skipped++
+                continue
+            }
+            $conflicts += "$($plat.Name)/$relPath"
+            if ($Force) {
+                if (-not $DryRun) {
+                    Copy-Item -Path $file.FullName -Destination $destFile -Force
+                }
+                Write-Host "OVERWRITE $($plat.Name)/$relPath" -ForegroundColor Yellow
+                $copied++
+            } else {
+                Write-Host "SKIP-DIFF  $($plat.Name)/$relPath" -ForegroundColor DarkYellow
+                $skipped++
+            }
+        } else {
+            if (-not $DryRun) {
+                if (-not (Test-Path $destFileDir)) {
+                    New-Item -ItemType Directory -Path $destFileDir -Force | Out-Null
+                }
+                Copy-Item -Path $file.FullName -Destination $destFile
+            }
+            Write-Host "NEW        $($plat.Name)/$relPath" -ForegroundColor Green
+            $copied++
+        }
+    }
+}
+
+Write-Host ""
+Write-Host "Bilan : $copied copies / $skipped skips" -ForegroundColor Cyan
+
+if ($conflicts.Count -gt 0 -and -not $Force) {
+    Write-Host ""
+    Write-Host "/!\ $($conflicts.Count) fichiers different entre vault et repo (non ecrases) :" -ForegroundColor Yellow
+    foreach ($c in $conflicts) { Write-Host "    $c" }
+    Write-Host ""
+    Write-Host "Pour ecraser : .\publish.ps1 -Force (perd les redactions manuelles du repo)"
+}
+
+if ($DryRun) {
+    Write-Host ""
+    Write-Host "Mode -DryRun : rien copie." -ForegroundColor Magenta
+    exit 0
+}
+
+Write-Host ""
+Write-Host ">>> git status" -ForegroundColor Cyan
+git status --short
+
+$pending = git status --porcelain
+if ([string]::IsNullOrWhiteSpace($pending)) {
+    Write-Host ""
+    Write-Host "Rien a commit." -ForegroundColor Green
+    exit 0
+}
+
+Write-Host ""
+$confirm = Read-Host "Commit et push ? (y/N)"
+if ($confirm -ne "y") {
+    Write-Host "Abandonne. Modifs en place, pas commit."
+    exit 0
+}
+
+$msg = Read-Host "Message de commit (vide = 'sync vault')"
+if ([string]::IsNullOrWhiteSpace($msg)) { $msg = "sync vault -> content/" }
+
+git add -A
+git commit -m $msg
+
+if ($SkipPush) {
+    Write-Host ""
+    Write-Host "Commit fait, push skippe (-SkipPush)." -ForegroundColor Green
+    exit 0
+}
+
+git push origin main
+Write-Host ""
+Write-Host "Pushe. GitHub Actions deploie dans ~1 min." -ForegroundColor Green

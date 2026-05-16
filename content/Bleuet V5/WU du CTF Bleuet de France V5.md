@@ -31,12 +31,12 @@ Tous les challenges ne sont pas couverts ci-dessous. Les flags ont été retiré
 
 ### Alias et acide (L'audace, 25 pts)
 
-**Énoncé :** Identifier l'auteure d'une phrase chimique/audacieuse et son produit lié.
+**Énoncé :** Identifier l'auteur d'une phrase chimique/audacieuse et son produit lié.
 
 **Méthode :**
 
-- Recherche OSINT sur la chimiste Lenormand
-- Identification : Marie Anne Lenormand → pastilles abrasives
+- Recherche OSINT sur le chimiste Lenormand
+- Identification : Lenormand → pastilles abrasives
 - Combinaison en flag
 
 ---
