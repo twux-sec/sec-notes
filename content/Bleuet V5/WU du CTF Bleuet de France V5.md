@@ -1,15 +1,31 @@
+# CTF Bleuet de France V5 2026 — Write-Ups
 
-# CTF Bleuet de France V5 2026 — Write-Ups complets
+![[banner.png]]
 
 **Organisateur :** AEGE  
-**Dates :** 8–15 mai 2026  
-**Thème :** OSINT historique / Mémoire de la Résistance française (WWII)  
+**Dates :** 8 → 15 mai 2026  
+**Thème :** OSINT historique, mémoire de la Résistance française (WWII)  
+**Catégories :** Dans la peau d'un résistant · L'audace de résister · Un devoir de mémoire · L'art de résister
+
+## Résultat
+
+J'ai participé en solo sous l'équipe **The Weaselers** (FR). Score final : **1050 points**, CTF terminé à **100%** — l'équipe figure parmi les **41 équipes** ayant complété l'intégralité des challenges.
+
+![[team.png]]
+
+### Challenges résolus
+
+![[board.png]]
+
+### Les 41 équipes 100%
+
+![[teams-100.png]]
 
 ---
 
-## 📝 Write-Ups détaillés
+## Write-Ups
 
-Attention, tous les challenge ne sont pas dans ce WU.
+Tous les challenges ne sont pas couverts ci-dessous. Les flags ont été retirés à la publication — seules les méthodologies OSINT restent.
 
 ---
 
