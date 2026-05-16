@@ -15,8 +15,6 @@ Attention, tous les challenge ne sont pas dans ce WU.
 
 ### Alias et acide (L'audace, 25 pts)
 
-**Flag :** `[REDACTED]`
-
 **Énoncé :** Identifier l'auteure d'une phrase chimique/audacieuse et son produit lié.
 
 **Méthode :**
@@ -29,8 +27,6 @@ Attention, tous les challenge ne sont pas dans ce WU.
 
 ### Plus qu'un numéro (Mémoire, 25 pts)
 
-**Flag :** `[REDACTED]`
-
 **Énoncé :** Coordonnées GPS d'un lieu mémoriel.
 
 **Méthode :** Recherche OSINT → identification du lieu → coordonnées GPS au format `latitude_longitude`
@@ -38,8 +34,6 @@ Attention, tous les challenge ne sont pas dans ce WU.
 ---
 
 ### Alpha Ici Bravo (Dans la peau, 25 pts)
-
-**Flag :** [FLAG INCONNU]
 
 **Méthode :**
 
@@ -52,8 +46,6 @@ Attention, tous les challenge ne sont pas dans ce WU.
 
 ### Un vers pour la liberté (25 pts)
 
-**Flag :** `[REDACTED]`
-
 **Énoncé :** Musique contenant les vers _"Les sanglots longs des violons de l'automne..."_ — quel réseau de résistants et quelle opération ?
 
 **Méthode :**
@@ -63,13 +55,9 @@ Attention, tous les challenge ne sont pas dans ce WU.
 - Opération = **Overlord** (Débarquement de Normandie, 6 juin 1944)
 - Format : `[auteur]_[opération]`
 
-**Flag :** `[REDACTED]`
-
 ---
 
 ### Résistant dans l'art (L'art, 25 pts)
-
-**Flag :** `[REDACTED]`
 
 **Énoncé :** Identifier un artiste résistant et le lieu à Lyon associé à son œuvre.
 
@@ -80,13 +68,9 @@ Attention, tous les challenge ne sont pas dans ce WU.
 - Trouver le croquis de l'énoncé
 - Lieu spécifique à Lyon = **Église de Beauregard**
 
-**Flag :** `[REDACTED]`
-
 ---
 
 ### L'équipage (Mémoire, 25 pts)
-
-**Flag :** [FLAG INCONNU]
 
 **Méthode :**
 
@@ -98,8 +82,6 @@ Attention, tous les challenge ne sont pas dans ce WU.
 
 ### Plymouth 2 (L'audace, 50 pts)
 
-**Flag :** `[REDACTED]`
-
 **Contexte :** Les opérations Carpetbagger (parachutages d'agents Sussex par l'USAAF) portaient des noms de voitures : Ansaldo, Bentley, Benz, **Plymouth**...
 
 **Méthode :** Recherche sur la mission Plymouth 2 → identification de l'agent `Jones`
@@ -107,8 +89,6 @@ Attention, tous les challenge ne sont pas dans ce WU.
 ---
 
 ### Décryptage en piqué (Dans la peau, 50 pts)
-
-**Flag :** [FLAG INCONNU — non retrouvé]
 
 **Méthode :**
 
@@ -121,14 +101,10 @@ Attention, tous les challenge ne sont pas dans ce WU.
 
 ### Le glacier tenace (L'audace, 50 pts)
 
-**Flag :** [FLAG INCONNU]  
 **Méthode :** [INCONNUE]
-
 ---
 
 ### Plastique et crayons (50 pts)
-
-**Flag :** `[REDACTED]`
 
 **Énoncé :** Sabotage ferroviaire de Laluque (27/07/1944) par Henri Ferrand (instituteur, 24 ans), en plein jour malgré les sentinelles. Un document titré de son nom relate l'exploit. Combien de temps ont duré les explosions ? À quelle distance ont-elles été entendues ?
 
@@ -145,13 +121,9 @@ Attention, tous les challenge ne sont pas dans ce WU.
     - Durée des explosions : **plus de 48 heures**
     - Distance entendue : **plus de 50 km**
 
-**Flag :** `[REDACTED]`
-
 ---
 
 ### Les fusillés du Mont-Valérien (Mémoire, 50 pts)
-
-**Flag :** `[REDACTED]`
 
 > Format : noms uniquement séparés par `_`
 
@@ -169,8 +141,6 @@ Attention, tous les challenge ne sont pas dans ce WU.
 
 ### La Charente libérée (50 pts)
 
-**Flag :** `[REDACTED]`
-
 **Énoncé :** _"Après cette descente du maquis, j'ai craint des représailles et peu après, j'ai rejoint le bois près de Louzac-Saint-André."_ Qui était le chef de ce réseau de résistance et son alias ?
 
 **Méthode OSINT :**
@@ -179,15 +149,11 @@ Attention, tous les challenge ne sont pas dans ce WU.
 - **Réseau :** Maquis **Bir Hacheim** (Charente)
 - **Chef :** **Claude Bonnier**, alias **Hypoténuse**
 
-**Flag :** `[REDACTED]`
-
 > Note : André Chabanne ("Blanqui") était co-fondateur du maquis Bir Hacheim mais pas le chef lié à ce contexte spécifique.
 
 ---
 
 ### Les ondes du silence (L'art)
-
-**Flag :** `[REDACTED]`
 
 **Énoncé :** Image contenant des waveforms (2 lignes × 5 clusters = 10 caractères). The Waveform Alphabet (sons des lettres en anglais) sert de référence.
 
@@ -199,13 +165,9 @@ Attention, tous les challenge ne sont pas dans ce WU.
 4. **Compte rendu de mission** consulté → les infrastructures détruites = **pylône nord et pylône ouest**
 5. **Format :** `mission_[nom]_[infrastructure]`
 
-**Flag :** `[REDACTED]`
-
 ---
 
 ### Interception de code (Dans la peau, 100 pts)
-
-**Flag :** `[REDACTED]`
 
 **Énoncé :** Déchiffrer un texte chiffré avec la clé = devise d'un personnage identifié via OSINT GitHub.
 
@@ -217,13 +179,9 @@ Attention, tous les challenge ne sont pas dans ce WU.
 4. **Déchiffrement** → coordonnées `49°22'10.9"N 0°52'15.9"W`
 5. **Géolocalisation :** Saint-Laurent-sur-Mer → **Omaha Beach**
 
-**Flag :** `[REDACTED]`
-
 ---
 
 ### La princesse (Mémoire, 75 pts)
-
-**Flag :** `[REDACTED]`
 
 **Méthode :** Recherche OSINT sur une résistante surnommée "la princesse" → identification d'**Éléonore Chédeville** 
 Utilisation des sites historique
@@ -232,19 +190,13 @@ Utilisation des sites historique
 
 ### Le tract dissident (L'audace, 75 pts)
 
-**Flag :** `[REDACTED]`
-
 **Énoncé :** Retrouver le lieu de distribution/impression d'un tract clandestin.
 
 **Méthode :** Recherche OSINT sur les tracts clandestins parisiens → adresse identifiée : **12 rue Henry Monnier** (Paris)
 
-**Flag :** `[REDACTED]`
-
 ---
 
 ### Lettre d'un soldat (75 pts)
-
-**Flag :** `[REDACTED]`
 
 > ⚠️ Format exceptionnel : MAJUSCULES avec ponctuation
 
@@ -258,13 +210,9 @@ Utilisation des sites historique
 4. **Document identifié** via les archives BnF
 
 
-**Flag :** la phrase en MAJUSCULES avec ponctuation exacte
-
 ---
 
 ### Restaurant La Belle Équipe
-
-**Flag :** `[REDACTED]`
 
 **Énoncé :** Pour les 10 ans des attentats du 13 novembre, hommage devant La Belle Équipe (92 rue de Charonne, Paris 11e). À moins de 150 mètres, un restaurant dont le nom rappelle un "moment météorologique de l'année" était cher au cœur de la Résistance.
 
@@ -282,13 +230,9 @@ Utilisation des sites historique
 5. Lien Résistance : "automne" = mot central de "Chanson d'automne" de Verlaine = code BBC du Débarquement
 6. Menu en 5 étapes ✓
 
-**Flag :** `[REDACTED]`
-
 ---
 
 ### Motif aléatoire (Stereogram)
-
-**Flag :** `[REDACTED]`
 
 **Énoncé :** Image apparemment aléatoire (bruit gris). Decoder le message caché.
 
@@ -299,13 +243,9 @@ Utilisation des sites historique
 3. **Décodage avec outil en ligne**
 4. **Image cachée :** Sceau circulaire du mouvement **"Ceux de la Libération" (CDLL)** avec Croix de Lorraine
 
-**Flag :** `[REDACTED]`
-
 ---
 
 ### Plan Sussex
-
-**Flag :** `[REDACTED]`
 
 **Énoncé :** Coordonnées 48.844001 / 2.34805 → point de rendez-vous du Plan Sussex. Les agents utilisaient une phrase codée + une photographie pour se reconnaître. Retrouver le surnom de la personne sur la photo, puis les coordonnées du lieu associé.
 
@@ -318,8 +258,6 @@ Utilisation des sites historique
 5. **Connexion :** Lucie Aubrac utilisait l'**Hôpital de l'Antiquaille** (Lyon 5e) comme point de rendez-vous clandestin
 6. **Crack stéganographie** avec le mot de passe `Lucie Samuel` → révèle des informations complémentaires
 7. **Coordonnées GPS de l'Hôpital de l'Antiquaille** = flag final
-
-**Flag :** `[REDACTED]`
 
 ---
 
