@@ -1,7 +1,7 @@
 # Meow
 
-Platform : HackTheBox (Starting Point — Tier 0)
-Difficulty : Very Easy
+Plateforme : HackTheBox (Starting Point — Tier 0)
+Difficulté : Very Easy
 Date : 07/04/2026
 
 Tags : `#htb` `#starting-point` `#telnet` `#misconfiguration`

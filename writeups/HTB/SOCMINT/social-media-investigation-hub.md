@@ -1,8 +1,8 @@
 # Social Media Investigation Hub
 
-Platform : HackTheBox
-Category : OSINT
-Difficulty : Easy
+Plateforme : HackTheBox
+Catégorie : OSINT
+Difficulté : Easy
 Date : 06/04/2026
 
 Tags : `#osint` `#htb` `#socmint` `#investigation`

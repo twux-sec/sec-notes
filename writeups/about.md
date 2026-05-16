@@ -4,9 +4,9 @@ title: About
 
 ## Twux
 
-Background IT — réseaux et systèmes — puis dix ans d'entrepreneuriat dans des secteurs régulés : **gestion de patrimoine, courtage en assurance, immobilier**. Mon quotidien : conformité **LCB-FT** (lutte contre le blanchiment et le financement du terrorisme), déclarations **TracFin**, audits réglementaires, analyse de risque financier, **due diligence client**.
+Background IT, puis dix ans en finance régulée (gestion de patrimoine, courtage assurance, immobilier) — conformité **LCB-FT**, déclarations **TracFin**, due diligence client.
 
-Cette expérience d'enquête, d'analyse documentaire et de cadrage réglementaire, je la canalise aujourd'hui vers le **renseignement, l'OSINT et la cybersécurité défensive**. Le fil rouge entre les deux mondes : suivre une piste à partir d'indices fragmentaires, et savoir documenter ce qu'on trouve.
+Aujourd'hui ce réflexe d'enquête et d'analyse documentaire, je le canalise vers **l'OSINT et la cybersécurité défensive**.
 
 ## Certifications
 
