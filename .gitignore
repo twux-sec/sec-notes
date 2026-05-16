@@ -16,11 +16,6 @@ prof/
 .DS_Store
 Thumbs.db
 
-# Templates et notes méthodo (hors site public)
-TEMPLATE_WRITEUP.md
-TEMPLATE_OSINT.md
-METHODOLOGY.md
-
 # Notes perso — jamais commit
 content/private/
 content/daily/
@@ -30,6 +25,3 @@ private/
 daily/
 journal/
 drafts/
-
-# Fichiers de travail hors-doublons éventuels
-osint-writeups/osintopia-14IX.md

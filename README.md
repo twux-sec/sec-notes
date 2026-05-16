@@ -1,6 +1,6 @@
 # sec-notes
 
-Cybersecurity & intelligence research notes.
+Writeups CTF et notes cybersécurité, publiés sur **[twux-sec.github.io/sec-notes](https://twux-sec.github.io/sec-notes/)**.
 
 ## About
 
@@ -11,23 +11,16 @@ IT background in networking and systems. Built and managed companies in regulate
 - F1NDX OSINT Levels 1-3 (April 2026)
 - [Trace Labs OSINT Badge](https://factory.cancred.ca/obv3/credentials/d6a5f82ca2dd96d98a7d25a29106449e55af00f8) (endorsed by F1NDX)
 
-## Challenges
+## Stack
 
-- [Taste of Influence](osint-writeups/osint-industries-ctf/taste-of-influence/) — OSINT Industries CTF (VK, Strava)
-- [Operation LOCKERGOGA](osint-writeups/osint-industries-ctf/operation-lockergoga/) — OSINT Industries CTF (ransomware, vehicle OSINT)
-- [Caught in the Act](challenges/osint-industries-ctf/caught-in-the-act.md) — OSINT Industries CTF (geolocation)
-- [DEPIX](challenges/osint-industries-ctf/osint-depix.md) — OSINT Industries CTF (boarding pass depix)
-- [Social Media Investigation Hub](osint-writeups/htb-social-media-investigation-hub.md) — HackTheBox (SOCMINT)
-- [Meow](challenges/htb-meow/htb-meow.md) — HTB Starting Point (Telnet)
-- [Fawn](challenges/htb-fawn/htb-fawn.md) — HTB Starting Point (FTP)
-- [Dancing](challenges/htb-dancing/htb-dancing.md) — HTB Starting Point (SMB)
+- [Quartz v4](https://quartz.jzhao.xyz/) — moteur de publication (Markdown → static site)
+- GitHub Actions → GitHub Pages
+- Vault Obsidian local (non publié) comme source
 
-## Other
+## Workflow
 
-- [Incident Response — Phishing Playbook](incident-response/playbook-phishing.md)
-- [Detection Rules](detection-rules/)
-- [GRC Templates](grc-templates/)
+Les writeups sont rédigés dans un vault Obsidian privé puis synchronisés via `publish.ps1` vers le dossier `content/`. Seuls les dossiers `writeups/` du vault sont publiés ; les `notes/` (brouillons, drafts) restent locaux.
 
 ## License
 
-Shared for educational purposes. Flags and sensitive data are redacted.
+Partagé à des fins pédagogiques. Flags et données sensibles sont rédigés.
