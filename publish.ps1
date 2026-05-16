@@ -1,4 +1,4 @@
-# publish.ps1 — sync vault → content/ + commit + push
+# publish.ps1 — sync vault → writeups/ + commit + push
 #
 # Usage :
 #   .\publish.ps1              # sync + montre git status + demande commit/push
@@ -9,7 +9,7 @@
 #
 # Convention :
 # - Vault = source de vérité. Tout fichier .md ou attachment dans
-#   challenges-CTF/<PLAT>/writeups/ est copié vers content/<PLAT>/.
+#   challenges-CTF/<PLAT>/writeups/ est copié vers writeups/<PLAT>/.
 # - Si le vault a un .md directement sous <PLAT>/ (ex: Bleuet V5), il est copié aussi.
 # - Les notes/ du vault ne sont JAMAIS publiées.
 # - Par défaut le repo est écrasé pour rester un miroir exact du vault.
@@ -26,14 +26,14 @@ param(
 
 $ErrorActionPreference = "Stop"
 $repoRoot = $PSScriptRoot
-$contentDir = Join-Path $repoRoot "content"
+$contentDir = Join-Path $repoRoot "writeups"
 
 if (-not (Test-Path $VaultPath)) {
     Write-Error "Vault non trouvé : $VaultPath"
     exit 1
 }
 
-Write-Host ">>> Sync vault -> content/" -ForegroundColor Cyan
+Write-Host ">>> Sync vault -> writeups/" -ForegroundColor Cyan
 Write-Host "    src : $VaultPath"
 Write-Host "    dst : $contentDir"
 Write-Host ""
@@ -128,7 +128,7 @@ if ([string]::IsNullOrWhiteSpace($pending)) {
 
 Write-Host ""
 if ($Yes) {
-    $msg = "sync vault -> content/ ($(Get-Date -Format 'yyyy-MM-dd HH:mm'))"
+    $msg = "sync vault -> writeups/ ($(Get-Date -Format 'yyyy-MM-dd HH:mm'))"
     Write-Host "Mode -Yes : commit auto + push" -ForegroundColor Cyan
 } else {
     $confirm = Read-Host "Commit et push ? (y/N)"
@@ -137,7 +137,7 @@ if ($Yes) {
         exit 0
     }
     $msg = Read-Host "Message de commit (vide = 'sync vault')"
-    if ([string]::IsNullOrWhiteSpace($msg)) { $msg = "sync vault -> content/" }
+    if ([string]::IsNullOrWhiteSpace($msg)) { $msg = "sync vault -> writeups/" }
 }
 
 git add -A

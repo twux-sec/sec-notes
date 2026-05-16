@@ -17,10 +17,10 @@ prof/
 Thumbs.db
 
 # Notes perso — jamais commit
-content/private/
-content/daily/
-content/journal/
-content/drafts/
+writeups/private/
+writeups/daily/
+writeups/journal/
+writeups/drafts/
 private/
 daily/
 journal/

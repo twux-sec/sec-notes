@@ -19,7 +19,7 @@ IT background in networking and systems. Built and managed companies in regulate
 
 ## Workflow
 
-Les writeups sont rédigés dans un vault Obsidian privé puis synchronisés via `publish.ps1` vers le dossier `content/`. Seuls les dossiers `writeups/` du vault sont publiés ; les `notes/` (brouillons, drafts) restent locaux.
+Les writeups sont rédigés dans un vault Obsidian privé puis synchronisés via `publish.ps1` vers le dossier `writeups/`. Seuls les dossiers `writeups/` du vault sont publiés ; les `notes/` (brouillons, drafts) restent locaux.
 
 ## License
 
