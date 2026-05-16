@@ -2,15 +2,15 @@
 title: twux-sec | Notes & WU
 ---
 
-Notes et writeups CTF — OSINT, SOC, incident response.
+Writeups CTF — OSINT, HTB, Trace Labs, Bleuet de France.
 
-> Site en construction. Contenu publié depuis mon vault Obsidian via [Quartz v4](https://quartz.jzhao.xyz).
+## Plateformes
 
-## Catégories
-
-- **HTB** — HackTheBox (Starting Point, Boxes, Sherlocks)
-- **OSINT** — OSINT Industries CTF, Osintopia, Trace Labs, OSINT-FR, Bleuet
-- **THM** — TryHackMe
+- **[[HTB/Fawn/Fawn-WU|HTB]]** — HackTheBox Starting Point
+- **[[OsintINIndustriesCTF/Caught in the Act-WU|OSINT Industries CTF]]** — Challenges OSINT (géoloc, depix, vehicle OSINT)
+- **[[Osint-FR/Georgette/Georgette-WU|OSINT-FR]]** — Plateforme française OSINT
+- **[[Trace-Labs/Weekly 28|Trace Labs]]** — OSINT Search Party (missing persons)
+- **[[Bleuet V5/WU du CTF Bleuet de France V5|Bleuet de France V5]]** — CTF Bleuet
 
 ## Liens
 
