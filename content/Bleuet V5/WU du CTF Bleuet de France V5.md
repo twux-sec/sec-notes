@@ -9,7 +9,7 @@
 
 ## Résultat
 
-J'ai participé en solo sous l'équipe **The Weaselers** (FR). Score final : **1050 points**, CTF terminé à **100%** — l'équipe figure parmi les **41 équipes** ayant complété l'intégralité des challenges.
+J'ai participé en solo sous l'équipe **The Weaselers** (FR). Score final : **1050 points**, CTF terminé à **100%** — l'équipe figure parmi les **41 équipes** à avoir complété l'intégralité des challenges, sur **220 équipes inscrites**.
 
 ![[team.png]]
 
@@ -17,7 +17,7 @@ J'ai participé en solo sous l'équipe **The Weaselers** (FR). Score final : **1
 
 ![[board.png]]
 
-### Les 41 équipes 100%
+### Les 41 équipes finishers (sur 220)
 
 ![[teams-100.png]]
 

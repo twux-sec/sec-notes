@@ -23,7 +23,7 @@ CTF historique et mémoriel sur la Résistance française (WWII).
 
 | Équipe | Score | Statut |
 |---|---|---|
-| **The Weaselers** (FR) — solo (capitaine) | **1050 pts** | **100% complete** — top 41 |
+| **The Weaselers** (FR) — solo (capitaine) | **1050 pts** | **100% complete** — 41 finishers sur 220 équipes |
 
 → [[Bleuet V5/WU du CTF Bleuet de France V5|Writeups complets]]
 

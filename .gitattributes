@@ -1,1 +1,21 @@
 * text=auto eol=lf
+
+# Tuyauterie Quartz : marquée "vendored" pour que GitHub :
+# - l'exclue des stats de langage du repo
+# - collapse les diffs dans les pull requests
+# - mette le focus visuel sur content/
+quartz/** linguist-vendored
+*.config.ts linguist-vendored
+quartz.layout.ts linguist-vendored
+package.json linguist-vendored
+package-lock.json linguist-vendored
+tsconfig.json linguist-vendored
+globals.d.ts linguist-vendored
+index.d.ts linguist-vendored
+.prettierrc linguist-vendored
+.prettierignore linguist-vendored
+.npmrc linguist-vendored
+.node-version linguist-vendored
+
+# CI : "generated" pour le même effet
+.github/** linguist-generated
