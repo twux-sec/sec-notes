@@ -1,5 +1,35 @@
+# Claude / IDE
 .claude/
+
+# Quartz build artefacts
+node_modules/
+public/
+.quartz-cache/
+tsconfig.tsbuildinfo
+prof/
+
+# Obsidian (vault metadata)
+.obsidian/
+.obsidian.vimrc
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Templates et notes méthodo (hors site public)
 TEMPLATE_WRITEUP.md
 TEMPLATE_OSINT.md
 METHODOLOGY.md
+
+# Notes perso — jamais commit
+content/private/
+content/daily/
+content/journal/
+content/drafts/
+private/
+daily/
+journal/
+drafts/
+
+# Fichiers de travail hors-doublons éventuels
 osint-writeups/osintopia-14IX.md
