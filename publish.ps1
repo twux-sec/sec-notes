@@ -1,20 +1,24 @@
 # publish.ps1 — sync vault → content/ + commit + push
 #
 # Usage :
-#   .\publish.ps1              # sync (ne touche pas aux fichiers existants), puis demande commit
-#   .\publish.ps1 -Force       # écrase les fichiers existants (ATTENTION : perd les redactions/edits manuels)
+#   .\publish.ps1              # sync + montre git status + demande commit/push
+#   .\publish.ps1 -Yes         # mode 1-clic : sync + commit auto + push (zéro prompt)
 #   .\publish.ps1 -DryRun      # montre ce qui serait copié, ne touche à rien
 #   .\publish.ps1 -SkipPush    # commit mais ne push pas
+#   .\publish.ps1 -KeepRepo    # ne pas écraser les fichiers du repo qui diffèrent du vault
 #
-# Convention : seuls les sous-dossiers writeups/ du vault sont copiés.
-# Les notes/ restent perso (vault uniquement).
-# Si le vault contient un .md à la racine d'une plateforme (ex: Bleuet V5),
-# il est aussi copié.
+# Convention :
+# - Vault = source de vérité. Tout fichier .md ou attachment dans
+#   challenges-CTF/<PLAT>/writeups/ est copié vers content/<PLAT>/.
+# - Si le vault a un .md directement sous <PLAT>/ (ex: Bleuet V5), il est copié aussi.
+# - Les notes/ du vault ne sont JAMAIS publiées.
+# - Par défaut le repo est écrasé pour rester un miroir exact du vault.
 
 param(
-    [switch]$Force,
+    [switch]$Yes,
     [switch]$DryRun,
     [switch]$SkipPush,
+    [switch]$KeepRepo,
     [string]$VaultPath = "C:\Users\victo\Documents\DEV\vault-t\challenges-CTF",
     # Plateformes NON publiques (jamais syncees) :
     [string[]]$Exclude = @("Osint-FR")
@@ -73,15 +77,15 @@ foreach ($plat in Get-ChildItem -Path $VaultPath -Directory) {
                 continue
             }
             $conflicts += "$($plat.Name)/$relPath"
-            if ($Force) {
+            if ($KeepRepo) {
+                Write-Host "SKIP-DIFF  $($plat.Name)/$relPath" -ForegroundColor DarkYellow
+                $skipped++
+            } else {
                 if (-not $DryRun) {
                     Copy-Item -Path $file.FullName -Destination $destFile -Force
                 }
                 Write-Host "OVERWRITE $($plat.Name)/$relPath" -ForegroundColor Yellow
                 $copied++
-            } else {
-                Write-Host "SKIP-DIFF  $($plat.Name)/$relPath" -ForegroundColor DarkYellow
-                $skipped++
             }
         } else {
             if (-not $DryRun) {
@@ -99,12 +103,10 @@ foreach ($plat in Get-ChildItem -Path $VaultPath -Directory) {
 Write-Host ""
 Write-Host "Bilan : $copied copies / $skipped skips" -ForegroundColor Cyan
 
-if ($conflicts.Count -gt 0 -and -not $Force) {
+if ($conflicts.Count -gt 0 -and $KeepRepo) {
     Write-Host ""
     Write-Host "/!\ $($conflicts.Count) fichiers different entre vault et repo (non ecrases) :" -ForegroundColor Yellow
     foreach ($c in $conflicts) { Write-Host "    $c" }
-    Write-Host ""
-    Write-Host "Pour ecraser : .\publish.ps1 -Force (perd les redactions manuelles du repo)"
 }
 
 if ($DryRun) {
@@ -125,14 +127,18 @@ if ([string]::IsNullOrWhiteSpace($pending)) {
 }
 
 Write-Host ""
-$confirm = Read-Host "Commit et push ? (y/N)"
-if ($confirm -ne "y") {
-    Write-Host "Abandonne. Modifs en place, pas commit."
-    exit 0
+if ($Yes) {
+    $msg = "sync vault -> content/ ($(Get-Date -Format 'yyyy-MM-dd HH:mm'))"
+    Write-Host "Mode -Yes : commit auto + push" -ForegroundColor Cyan
+} else {
+    $confirm = Read-Host "Commit et push ? (y/N)"
+    if ($confirm -ne "y") {
+        Write-Host "Abandonne. Modifs en place, pas commit."
+        exit 0
+    }
+    $msg = Read-Host "Message de commit (vide = 'sync vault')"
+    if ([string]::IsNullOrWhiteSpace($msg)) { $msg = "sync vault -> content/" }
 }
-
-$msg = Read-Host "Message de commit (vide = 'sync vault')"
-if ([string]::IsNullOrWhiteSpace($msg)) { $msg = "sync vault -> content/" }
 
 git add -A
 git commit -m $msg
