@@ -1,189 +1,189 @@
-# Playbook — Phishing Incident Response
+# Playbook — Réponse à incident phishing
 
-> **Classification:** Security incident — Social engineering
-> **Default severity:** Medium (reassess based on impact)
-> **Last updated:** March 2026
-> **Author:** twux
-> **Version:** 1.0
-
----
-
-## 1. Objective
-
-This playbook describes the steps to follow when an employee reports a suspicious email or a detection tool flags a phishing email. The goal is to contain the threat, assess impact, and prevent any spread.
+> **Classification :** Incident de sécurité — Ingénierie sociale
+> **Sévérité par défaut :** Medium (à réévaluer selon l'impact)
+> **Dernière mise à jour :** mars 2026
+> **Auteur :** twux
+> **Version :** 1.0
 
 ---
 
-## 2. Triggers (when to use this playbook)
+## 1. Objectif
 
-| Trigger | Source |
+Ce playbook décrit les étapes à suivre lorsqu'un collaborateur signale un email suspect ou qu'un outil de détection alerte sur un phishing. L'objectif : contenir la menace, évaluer l'impact, prévenir toute propagation.
+
+---
+
+## 2. Déclencheurs (quand utiliser ce playbook)
+
+| Déclencheur | Source |
 |---|---|
-| Employee reports a suspicious email | Support ticket / Slack / phone |
-| Detection tool (SEG, SIEM) raises a phishing alert | Automated alert |
-| Multiple employees receive the same suspicious email | Group report |
-| Employee clicked a link or opened a suspicious attachment | Self-report or EDR detection |
+| Un collaborateur signale un email suspect | Ticket support / Slack / téléphone |
+| Un outil de détection (SEG, SIEM) alerte sur un phishing | Alerte automatisée |
+| Plusieurs collaborateurs reçoivent le même email suspect | Signalement groupé |
+| Un collaborateur a cliqué un lien ou ouvert une pièce jointe suspecte | Auto-signalement ou détection EDR |
 
 ---
 
-## 3. Severity levels
+## 3. Niveaux de sévérité
 
-| Level | Criteria | Examples |
+| Niveau | Critères | Exemples |
 |---|---|---|
-| 🟢 **Low** | Email received but not opened, or link not clicked | Classic spam, obvious attempt |
-| 🟡 **Medium** | Link clicked but no data entered | Phishing page visited, connection cut in time |
-| 🔴 **High** | Credentials entered, attachment opened, or malware executed | Compromised credentials, active reverse shell |
-| ⚫ **Critical** | Admin account compromised, confirmed data exfiltration | Access to IS, lateral movement detected |
+| 🟢 **Faible** | Email reçu mais non ouvert, ou lien non cliqué | Spam classique, tentative grossière |
+| 🟡 **Moyen** | Lien cliqué mais aucune donnée saisie | Page de phishing visitée, connexion coupée à temps |
+| 🔴 **Élevé** | Identifiants saisis, pièce jointe ouverte, ou malware exécuté | Credentials compromis, reverse shell actif |
+| ⚫ **Critique** | Compte admin compromis, exfiltration de données confirmée | Accès au SI, mouvement latéral détecté |
 
 ---
 
-## 4. Required tools
+## 4. Outils requis
 
-- **SIEM**: Splunk / Wazuh / Elastic Security — log correlation
-- **EDR**: CrowdStrike / SentinelOne / Microsoft Defender — endpoint isolation
-- **Sandbox**: Any.Run / Hybrid Analysis / Joe Sandbox — attachment/URL analysis
-- **Email Gateway**: Proofpoint / Mimecast / Microsoft Defender for O365
-- **Threat Intel**: VirusTotal, URLhaus, PhishTank, AbuseIPDB
-- **Ticketing**: JIRA / ServiceNow / TheHive — incident tracking
+- **SIEM** : Splunk / Wazuh / Elastic Security — corrélation des logs
+- **EDR** : CrowdStrike / SentinelOne / Microsoft Defender — isolation d'endpoint
+- **Sandbox** : Any.Run / Hybrid Analysis / Joe Sandbox — analyse de pièces jointes / URLs
+- **Email Gateway** : Proofpoint / Mimecast / Microsoft Defender for O365
+- **Threat Intel** : VirusTotal, URLhaus, PhishTank, AbuseIPDB
+- **Ticketing** : JIRA / ServiceNow / TheHive — suivi d'incident
 
 ---
 
-## 5. Response procedure
+## 5. Procédure de réponse
 
 ### Phase 1 — Triage (0-15 minutes)
 
-**Goal:** Confirm whether it's actually phishing and assess severity.
+**Objectif :** Confirmer qu'il s'agit bien d'un phishing et évaluer la sévérité.
 
-**Step 1.1 — Receive the report**
-- Create an incident ticket with: reporter name, date/time, email subject
-- Tell the employee NOT to delete the email
-- Ask: "Did you click any link or open any attachment?"
+**Étape 1.1 — Réception du signalement**
+- Créer un ticket d'incident avec : nom du déclarant, date/heure, objet de l'email
+- Demander au collaborateur de **ne pas supprimer** l'email
+- Question clé : « Avez-vous cliqué un lien ou ouvert une pièce jointe ? »
 
-**Step 1.2 — Analyze the email**
-- Get the **full email headers** (Return-Path, Received, SPF/DKIM/DMARC)
-- Check the sender address (legit domain or typosquatting?)
-- Analyze URLs without clicking (hover, or paste into VirusTotal/URLhaus)
-- If attachment present: extract the hash (SHA256) and check on VirusTotal
-- Submit the attachment to a sandbox (Any.Run) if hash is unknown
+**Étape 1.2 — Analyse de l'email**
+- Récupérer les **headers complets** (Return-Path, Received, SPF/DKIM/DMARC)
+- Vérifier l'adresse expéditeur (domaine légitime ou typosquatting ?)
+- Analyser les URLs sans cliquer (survol, ou copie dans VirusTotal/URLhaus)
+- Si pièce jointe : extraire le hash (SHA256) et le vérifier sur VirusTotal
+- Soumettre la pièce jointe à une sandbox (Any.Run) si le hash est inconnu
 
-**Step 1.3 — Classify severity**
-- Nobody clicked → 🟢 Low
-- Someone clicked but entered nothing → 🟡 Medium
-- Credentials entered or attachment executed → 🔴 High → move to Phase 2 immediately
+**Étape 1.3 — Classifier la sévérité**
+- Personne n'a cliqué → 🟢 Faible
+- Quelqu'un a cliqué mais n'a rien saisi → 🟡 Moyen
+- Credentials saisis ou pièce jointe exécutée → 🔴 Élevé → passer immédiatement en Phase 2
 
 ### Phase 2 — Containment (15-60 minutes)
 
-**Goal:** Stop the threat and prevent any spread.
+**Objectif :** Stopper la menace et empêcher toute propagation.
 
-**Step 2.1 — Isolate affected endpoint(s)**
-- Via EDR: isolate the endpoint from the network (network containment)
-- If no EDR: ask user to unplug network cable / disable WiFi
-- DO NOT power off the endpoint (preserve evidence in memory)
+**Étape 2.1 — Isoler le(s) endpoint(s) affecté(s)**
+- Via EDR : isoler l'endpoint du réseau (network containment)
+- Sans EDR : demander à l'utilisateur de débrancher le câble réseau / couper le WiFi
+- **NE PAS éteindre** l'endpoint (préserver les preuves en mémoire)
 
-**Step 2.2 — Block indicators of compromise (IOCs)**
-- Add malicious URLs/domains to proxy/firewall blocklist
-- Add sender IP to email filter
-- Add attachment hash to EDR (block)
-- Block IOCs at DNS level (sinkhole if possible)
+**Étape 2.2 — Bloquer les IOCs (Indicators of Compromise)**
+- Ajouter les URLs/domaines malveillants à la blocklist proxy/firewall
+- Ajouter l'IP expéditeur au filtre email
+- Ajouter le hash de pièce jointe à l'EDR (en blocage)
+- Bloquer les IOCs au niveau DNS (sinkhole si possible)
 
-**Step 2.3 — Revoke compromised access**
-- If credentials entered: **reset password immediately**
-- Revoke active sessions (Azure AD / Google Workspace)
-- Enable MFA if not already active
-- Check email forwarding rules (attackers often create these)
+**Étape 2.3 — Révoquer les accès compromis**
+- Si credentials saisis : **reset du mot de passe immédiat**
+- Révoquer les sessions actives (Azure AD / Google Workspace)
+- Activer MFA si pas déjà actif
+- Vérifier les règles de redirection d'email (les attaquants en créent souvent)
 
-**Step 2.4 — Search for other victims**
-- In SIEM: search for all recipients of the same email (same subject, same sender)
-- Check if other employees clicked (proxy logs, email gateway logs)
-- If mass campaign: alert the entire company through an official channel
+**Étape 2.4 — Chercher d'autres victimes**
+- Dans le SIEM : rechercher tous les destinataires du même email (même objet, même expéditeur)
+- Vérifier si d'autres collaborateurs ont cliqué (logs proxy, logs email gateway)
+- Si campagne de masse : alerter toute l'entreprise via un canal officiel
 
-### Phase 3 — Eradication (1-4 hours)
+### Phase 3 — Eradication (1-4 heures)
 
-**Goal:** Completely remove the threat from the environment.
+**Objectif :** Supprimer complètement la menace de l'environnement.
 
-**Step 3.1 — Clean mailboxes**
-- Via email admin: delete the malicious email from ALL mailboxes (purge)
-- Check Sent, Drafts, and Trash folders
+**Étape 3.1 — Nettoyer les boîtes mail**
+- Via l'admin email : supprimer l'email malveillant de TOUTES les boîtes (purge)
+- Vérifier les dossiers Envoyés, Brouillons et Corbeille
 
-**Step 3.2 — Scan affected endpoints**
-- Run a full scan via EDR
-- Check for suspicious processes, outbound network connections
-- Look for files dropped by the attachment (if applicable)
-- Check registry keys / scheduled tasks / services (persistence)
+**Étape 3.2 — Scanner les endpoints affectés**
+- Lancer un scan complet via EDR
+- Chercher des processus suspects, connexions sortantes anormales
+- Chercher les fichiers déposés par la pièce jointe (le cas échéant)
+- Vérifier les clés de registre / tâches planifiées / services (persistance)
 
-**Step 3.3 — Check for lateral movement**
-- In SIEM: look for connections from the compromised endpoint to other machines
-- Check Active Directory logs (unusual logins with the compromised account)
-- Scan contacted machines
+**Étape 3.3 — Vérifier le mouvement latéral**
+- Dans le SIEM : chercher les connexions depuis l'endpoint compromis vers d'autres machines
+- Vérifier les logs Active Directory (logins inhabituels avec le compte compromis)
+- Scanner les machines contactées
 
-### Phase 4 — Recovery (4-24 hours)
+### Phase 4 — Recovery (4-24 heures)
 
-**Goal:** Restore services and strengthen defenses.
+**Objectif :** Rétablir le service et renforcer les défenses.
 
-**Step 4.1 — Restore access**
-- Confirm password has been changed and MFA enabled
-- Put the endpoint back on the network after scan validation
-- If endpoint is too compromised: reimage it completely
+**Étape 4.1 — Rétablir les accès**
+- Confirmer que le mot de passe a été changé et que MFA est actif
+- Remettre l'endpoint sur le réseau après validation du scan
+- Si l'endpoint est trop compromis : le reimager complètement
 
-**Step 4.2 — Verify return to normal**
-- Confirm the user can work normally
-- Monitor the account for 48-72h (enhanced SIEM alerts)
-- Check that no data was exfiltrated (DLP logs if available)
+**Étape 4.2 — Vérifier le retour à la normale**
+- Confirmer que l'utilisateur peut travailler normalement
+- Monitorer le compte pendant 48-72h (alertes SIEM renforcées)
+- Vérifier qu'aucune donnée n'a été exfiltrée (logs DLP si disponibles)
 
-### Phase 5 — Post-incident (24-72 hours)
+### Phase 5 — Post-incident (24-72 heures)
 
-**Goal:** Learn from the incident and improve defenses.
+**Objectif :** Tirer les leçons et améliorer les défenses.
 
-**Step 5.1 — Write the incident report**
-- Full timeline
-- Identified IOCs (IPs, domains, hashes, emails)
-- Impact: number of victims, compromised data
-- Actions taken and results
-- Mean time to detect (MTTD) and mean time to respond (MTTR)
+**Étape 5.1 — Rédiger le rapport d'incident**
+- Timeline complète
+- IOCs identifiés (IPs, domaines, hashes, emails)
+- Impact : nombre de victimes, données compromises
+- Actions menées et résultats
+- Mean Time To Detect (MTTD) et Mean Time To Respond (MTTR)
 
-**Step 5.2 — Post-mortem meeting**
-- What worked well?
-- What failed or took too long?
-- What improvements to implement?
+**Étape 5.2 — Réunion post-mortem**
+- Qu'est-ce qui a bien fonctionné ?
+- Qu'est-ce qui a échoué ou pris trop de temps ?
+- Quelles améliorations mettre en place ?
 
-**Step 5.3 — Corrective actions**
-- Update email detection rules
-- Add IOCs to internal threat intel
-- Schedule a phishing awareness campaign for employees
-- Evaluate if new SIEM rules are needed
-- Update this playbook if necessary
+**Étape 5.3 — Actions correctives**
+- Mettre à jour les règles de détection email
+- Ajouter les IOCs à la threat intel interne
+- Programmer une campagne de sensibilisation phishing pour les collaborateurs
+- Évaluer la nécessité de nouvelles règles SIEM
+- Mettre à jour ce playbook si nécessaire
 
 ---
 
-## 6. Escalation
+## 6. Escalade
 
 | Condition | Action |
 |---|---|
-| 🔴 High severity | Inform CISO / SOC Manager |
-| ⚫ Critical severity | Inform executive team + activate crisis cell |
-| Personal data compromised | GDPR notification within 72h |
-| More than 10 employees affected | Company-wide internal communication |
-| Confirmed malware (ransomware, RAT) | Switch to "Malware Incident" playbook |
+| 🔴 Sévérité élevée | Informer le CISO / SOC Manager |
+| ⚫ Sévérité critique | Informer la direction + activer la cellule de crise |
+| Données personnelles compromises | Notification RGPD sous 72h (CNIL) |
+| Plus de 10 collaborateurs touchés | Communication interne entreprise |
+| Malware confirmé (ransomware, RAT) | Basculer sur le playbook "Incident Malware" |
 
 ---
 
-## 7. Performance indicators (KPIs)
+## 7. Indicateurs de performance (KPIs)
 
-| Metric | Target |
+| Métrique | Cible |
 |---|---|
-| Mean time to detect (MTTD) | < 15 minutes |
-| Time to containment | < 1 hour |
-| Mean time to resolve (MTTR) | < 24 hours |
-| Employee reporting rate | > 70% |
-| Click rate in awareness campaigns | < 5% |
+| Mean Time To Detect (MTTD) | < 15 minutes |
+| Time to Containment | < 1 heure |
+| Mean Time To Resolve (MTTR) | < 24 heures |
+| Taux de signalement collaborateur | > 70% |
+| Taux de clic en campagne de sensibilisation | < 5% |
 
 ---
 
-## 8. References
+## 8. Références
 
 - NIST SP 800-61 Rev.2 — Computer Security Incident Handling Guide
 - MITRE ATT&CK — Technique T1566 (Phishing)
-- ANSSI — Security Incident Management Guide
+- ANSSI — Guide de gestion des incidents de sécurité
 
 ---
 
-*This playbook should be tested through a tabletop exercise at least once a year.*
+*Ce playbook doit être testé via un exercice de table top au moins une fois par an.*

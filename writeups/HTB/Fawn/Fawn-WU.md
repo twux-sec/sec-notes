@@ -1,40 +1,47 @@
+# Fawn
 
+Platform : HackTheBox (Starting Point — Tier 0)
+Difficulty : Easy
+Date : 07/04/2026
 
-Plateforme: HTB
-Difficulté: Easy
-Date: 07/04/2026
+Tags : `#htb` `#starting-point` `#ftp` `#misconfiguration` `#anonymous-access`
 
-#htb #starting-point #ftp #misconfiguration #anonymous-access #done
 ---
 
-## Énoncé
+## Brief
 
 "Fawn is a very easy Linux machine which explores the File Transfer Protocol (FTP) and its exploitation when misconfigured to allow anonymous access."
 
 ## Recon
 
-`nmp -sV Target`
-vsftpd 3.0.3 running
+```bash
+nmap -sV [TARGET]
+```
 
-## Tentatives
+vsftpd 3.0.3 running on port 21.
 
-Connect with 'ftp anonymous@targetIP' 
+## Exploitation
+
+Connect with anonymous FTP :
+
+```bash
+ftp anonymous@[TARGET]
+```
+
 ![[Pasted image 20260407095419.png]]
-## Trouvé
+
+## Loot
+
+Anonymous login allowed — `ls` shows `flag.txt` in the directory.
 
 ![[Pasted image 20260407095734.png]]
 
-Then we use get for DL flag.txt and open with cat
-## Flag
-
-
-`[REDACTED]`
+Then `get flag.txt`, exit, and `cat flag.txt` locally.
 
 ---
 
-## Notes en vrac
+## Notes
 
-
-## Questions / à creuser
-
--
+- FTP without auth = obvious misconfig, vsftpd allows anonymous when explicitly enabled
+- Cleartext protocol — never expose FTP on public networks
+- Modern alternatives : SFTP (SSH), FTPS, or object storage (S3) with proper IAM

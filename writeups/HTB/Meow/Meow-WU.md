@@ -1,7 +1,7 @@
 # Meow
 
-Plateforme : HackTheBox (Starting Point — Tier 0)
-Difficulté : Very Easy
+Platform : HackTheBox (Starting Point — Tier 0)
+Difficulty : Very Easy
 Date : 07/04/2026
 
 Tags : `#htb` `#starting-point` `#telnet` `#misconfiguration`
@@ -16,7 +16,7 @@ nmap -sV [TARGET]
 
 ![[nmap-scan.png]]
 
-Port 23 open — telnet. C'est tout.
+Port 23 open — telnet. Nothing else.
 
 ## Exploitation
 
@@ -24,13 +24,13 @@ Port 23 open — telnet. C'est tout.
 telnet [TARGET]
 ```
 
-Defaults classiques :
+Tried common defaults :
 - admin → denied
-- root (sans password) → **in**
+- root (no password) → **in**
 
 ![[root-login.png]]
 
-`ls`, `flag.txt` est là.
+`ls`, `flag.txt` is right there.
 
 ![[flag.png]]
 
@@ -42,6 +42,6 @@ cat flag.txt
 
 ## Notes
 
-- Telnet = cleartext, jamais exposé en prod
-- Empty root password = misconfig classique
-- Un seul service mal configuré suffit à perdre une box
+- Telnet = cleartext protocol, should never be exposed
+- Empty root password = textbook misconfig
+- One badly configured service is enough to own a box
