@@ -47,6 +47,8 @@ Tous les challenges ne sont pas couverts ci-dessous. Les flags ont été retiré
 
 **Méthode :** Recherche OSINT → identification du lieu → coordonnées GPS au format `latitude_longitude`
 
+> 💡 **Tip outil :** [GeoView](https://geoview.info/) pour le lookup et la vérification de coordonnées GPS (conversion DD ↔ DMS, reverse geocoding, contexte).
+
 ---
 
 ### Alpha Ici Bravo (Dans la peau, 25 pts)
