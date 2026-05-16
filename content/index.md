@@ -4,6 +4,8 @@ title: twux-sec | Notes & WU
 
 Writeups CTF — OSINT, HTB, Trace Labs, Bleuet de France.
 
+→ [[about|Qui suis-je]] · [GitHub](https://github.com/twux-sec/sec-notes)
+
 ## Plateformes
 
 - **[[HTB/Fawn/Fawn-WU|HTB]]** — HackTheBox Starting Point
