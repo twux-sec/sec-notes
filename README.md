@@ -17,10 +17,6 @@ IT background in networking and systems. Built and managed companies in regulate
 - GitHub Actions → GitHub Pages
 - Vault Obsidian local (non publié) comme source
 
-## Workflow
-
-Les writeups sont rédigés dans un vault Obsidian privé puis synchronisés via `publish.ps1` vers le dossier `writeups/`. Seuls les dossiers `writeups/` du vault sont publiés ; les `notes/` (brouillons, drafts) restent locaux.
-
 ## License
 
 Partagé à des fins pédagogiques. Flags et données sensibles sont rédigés.

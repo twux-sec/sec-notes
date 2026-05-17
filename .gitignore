@@ -16,6 +16,10 @@ prof/
 .DS_Store
 Thumbs.db
 
+# Scripts de sync locaux — pas pour le repo public
+publish.ps1
+publish.bat
+
 # Notes perso — jamais commit
 writeups/private/
 writeups/daily/
