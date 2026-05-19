@@ -117,11 +117,6 @@ Tous les challenges ne sont pas couverts ci-dessous. Les flags ont été retiré
 
 ---
 
-### Le glacier tenace (L'audace, 50 pts)
-
-**Méthode :** [INCONNUE]
----
-
 ### Plastique et crayons (50 pts)
 
 **Énoncé :** Sabotage ferroviaire de Laluque (27/07/1944) par Henri Ferrand (instituteur, 24 ans), en plein jour malgré les sentinelles. Un document titré de son nom relate l'exploit. Combien de temps ont duré les explosions ? À quelle distance ont-elles été entendues ?
