@@ -14,9 +14,9 @@ Ce réflexe d'enquête et d'analyse documentaire, je le canalise maintenant vers
 
 <div style="display:flex; gap:1.5rem; flex-wrap:wrap; align-items:flex-end; margin-bottom:1rem;">
 
-![MVO Badge — Trace Labs](https://passport.cancred.ca/file/7/d/4/6/7d46b74841051126ba35c4647c4d9de6cab309db895832511bd470a424f4d5bc.png)
+<img src="https://passport.cancred.ca/file/7/d/4/6/7d46b74841051126ba35c4647c4d9de6cab309db895832511bd470a424f4d5bc.png" width="150" alt="MVO Badge — Trace Labs" />
 
-![Trace Labs OSINT Badge](https://passport.cancred.ca/file/9/4/9/8/94980fb1b7dfd98cddee0e2f3f1054c1c82bdf081bff04a88431b8f366c100e8.png)
+<img src="https://passport.cancred.ca/file/9/4/9/8/94980fb1b7dfd98cddee0e2f3f1054c1c82bdf081bff04a88431b8f366c100e8.png" width="150" alt="Trace Labs OSINT Badge" />
 
 </div>
 
