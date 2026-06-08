@@ -12,6 +12,7 @@ Writeups CTF et notes cybersécurité — OSINT, blue team, GRC, IR.
 - **[[OsintINIndustriesCTF/Caught in the Act-WU|OSINT Industries CTF]]** — géoloc, dépixelisation, vehicle OSINT
 - **[[Trace-Labs/Weekly 28|Trace Labs]]** — OSINT Search Party (missing persons)
 - **[[Bleuet V5/WU du CTF Bleuet de France V5|Bleuet de France V5]]** — CTF historique mémoriel (Résistance WWII) — 100% / top 41 sur 220
+- **[[Médileak 3/WU-Médileak-3|Médileak 3]]** — CTF narratif OSINT (fraude médicale, données de santé) — OsintFR mai 2026
 
 ## Notes & procédures
 
