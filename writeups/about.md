@@ -12,13 +12,17 @@ Ce réflexe d'enquête et d'analyse documentaire, je le canalise maintenant vers
 
 ## Badges & certifications
 
-| Reconnaissance | Émetteur | Date | Vérification |
-|---|---|---|---|
-| **MVO Badge** — Global OSINT Search Party CTF | Trace Labs | Juin 2026 | [factory.cancred.ca](https://factory.cancred.ca/obv3/credentials/ec665bdd40e5f2a464fc27e2926badd39fc89af2) |
-| **Trace Labs OSINT Badge** | Trace Labs | Avril 2026 | [factory.cancred.ca](https://factory.cancred.ca/obv3/credentials/d6a5f82ca2dd96d98a7d25a29106449e55af00f8) |
-| **F1NDX OSINT** — Levels 1, 2, 3 | F1NDX | Avril 2026 | F1NDX |
+<div style="display:flex; gap:1.5rem; flex-wrap:wrap; align-items:flex-end; margin-bottom:1rem;">
+
+[![MVO Badge — Trace Labs](https://passport.cancred.ca/file/7/d/4/6/7d46b74841051126ba35c4647c4d9de6cab309db895832511bd470a424f4d5bc.png)](https://factory.cancred.ca/obv3/credentials/ec665bdd40e5f2a464fc27e2926badd39fc89af2)
+
+[![Trace Labs OSINT Badge](https://passport.cancred.ca/file/9/4/9/8/94980fb1b7dfd98cddee0e2f3f1054c1c82bdf081bff04a88431b8f366c100e8.png)](https://factory.cancred.ca/obv3/credentials/d6a5f82ca2dd96d98a7d25a29106449e55af00f8)
+
+</div>
 
 Le **Most Valuable OSINT (MVO) badge** est attribué au membre d'une équipe qui soumet la pièce d'OSINT la plus précieuse lors d'un Global OSINT Search Party CTF. Équivalent au "Black Badge" Trace Labs — accès gratuit aux futurs CTF. Décerné à l'équipe **Fear the Weasel** (juin 2026).
+
+**F1NDX OSINT** — Levels 1, 2, 3 · Avril 2026
 
 ---
 
