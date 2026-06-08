@@ -349,8 +349,7 @@ Les challenges s'enchaînent comme une vraie enquête — chaque réponse ouvre 
 > *Une banque locale, à l'ancienne, avec son site à l'adresse [url].*
 
 **Méthode :**
-- Recherche Google `Crédit Briance Vienne banque site` → éviter le piège des "www" dans le document
-- URL : `briancevienne.fr`
+- WHoxy → recherche par mot-clé/entité → domaine trouvé
 
 ![[Pasted image 20260527090414.png]]
 
@@ -487,4 +486,4 @@ Les challenges s'enchaînent comme une vraie enquête — chaque réponse ouvre 
 
 ---
 
-*Flags et données sensibles rédigés — CTF terminé post-compétition.*
+*Flags et données sensibles masqués — CTF terminé post-compétition.*
