@@ -14,7 +14,7 @@ Ce réflexe d'enquête et d'analyse documentaire, je le canalise maintenant vers
 
 | Reconnaissance | Émetteur | Date | Vérification |
 |---|---|---|---|
-| **MVO Badge** — Global OSINT Search Party CTF | Trace Labs | Juin 2026 | CanCred.ca |
+| **MVO Badge** — Global OSINT Search Party CTF | Trace Labs | Juin 2026 | [factory.cancred.ca](https://factory.cancred.ca/obv3/credentials/ec665bdd40e5f2a464fc27e2926badd39fc89af2) |
 | **Trace Labs OSINT Badge** | Trace Labs | Avril 2026 | [factory.cancred.ca](https://factory.cancred.ca/obv3/credentials/d6a5f82ca2dd96d98a7d25a29106449e55af00f8) |
 | **F1NDX OSINT** — Levels 1, 2, 3 | F1NDX | Avril 2026 | F1NDX |
 
