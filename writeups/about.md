@@ -30,8 +30,6 @@ Recherche d'éléments OSINT sur des personnes disparues réelles, en partenaria
 
 **Équipe Fear the Weasel** — récompensée du badge **MVO** (Most Valuable OSINT) pour la soumission jugée la plus précieuse du CTF.
 
-→ [[Trace-Labs/Weekly 28|Weekly 28]]
-
 ### CTF Bleuet de France V5 (AEGE, mai 2026)
 
 CTF historique et mémoriel sur la Résistance française (WWII).
