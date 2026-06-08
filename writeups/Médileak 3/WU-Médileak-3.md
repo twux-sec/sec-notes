@@ -6,7 +6,7 @@ tags: [OSINT, CTF, narrative, SOCMINT, GEOINT, dataleak]
 
 # Médileak 3 — Write-Up
 
-**Organisateur :** OsintFR  
+**Organisateur :** OSCAR ZULU  
 **Édition :** 3 · mai 2026  
 **Thème :** enquête fictive — trafic de plantes médicinales, fraude aux données de santé, surveillance  
 **Format :** CTF narratif — questions enchaînées, pénalité -2 pts/erreur
